@@ -12,7 +12,7 @@ public class Main
   private static final InputReader inputReader = new FileReader();
   private static final MyGod myGod = new IAmStupid();
   private static final OutputWriter outputWriter = new OutputWriterImpl();
-  private static final SlidesBuilder slidesBuilder = new BasicSlidesBuilder();
+  private static final SlidesBuilder slidesBuilder = new MaxFinalTagsSlidesBuilder(10);
   private static final SlideShowBuilder slidesShowBuilder = new BasicSlideShowBuilder();
   private static final PointsCounter pointsCounter = new PointsCounter();
 

@@ -15,7 +15,7 @@ public class MaxFinalTagsSlidesBuilderTest {
         Photo photo = new Photo(1, true, new HashSet<>(Arrays.asList("tag1", "tag2", "tag3")));
         Photo photo2 = new Photo(2, true, new HashSet<>(Arrays.asList("tag1", "tag2", "tag5", "tag6")));
         Photo photo3 = new Photo(3, true, new HashSet<>(Arrays.asList("tag1", "tag2", "tag4")));
-        MaxFinalTagsSlidesBuilder builder = new MaxFinalTagsSlidesBuilder();
+        MaxFinalTagsSlidesBuilder builder = new MaxFinalTagsSlidesBuilder(10);
 
         Collection<Slide> slides = builder.build(Arrays.asList(photo, photo3, photo2));
     }
