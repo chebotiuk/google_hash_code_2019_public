@@ -22,4 +22,16 @@ public class IAmStupid implements MyGod
 
     return new Slideshow( slides );
   }
+
+  @Override
+  public List<Slide> step1( List<Photo> photos )
+  {
+    return null;
+  }
+
+  @Override
+  public Slideshow step2( List<Slide> slides )
+  {
+    return null;
+  }
 }
