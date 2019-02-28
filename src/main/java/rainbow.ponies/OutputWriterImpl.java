@@ -6,6 +6,7 @@ import rainbow.ponies.model.Slideshow;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UncheckedIOException;
 import java.util.stream.Collectors;
@@ -14,7 +15,18 @@ public class OutputWriterImpl implements OutputWriter
 {
   public void writeResult( Slideshow slideshow, String resultFileName )
   {
-    final File result = new File( this.getClass().getClassLoader().getResource( resultFileName ).getPath() );
+    final File result = new File( resultFileName );
+    if( !result.exists() )
+    {
+      try
+      {
+        result.createNewFile();
+      }
+      catch( IOException e )
+      {
+        throw new UncheckedIOException( e );
+      }
+    }
     try (PrintWriter writer = new PrintWriter( result ))
     {
       writer.println( slideshow.getSlides().size() ); // write number of slides
