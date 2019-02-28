@@ -34,6 +34,6 @@ public class PointsCounter {
     }
 
     long min(long l1, long l2, long l3) {
-        return 1l; // TODO test
+        return Math.min(l1, Math.min(l2, l3));
     }
 }
