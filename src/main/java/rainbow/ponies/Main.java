@@ -13,8 +13,22 @@ public class Main
 
   public static void main( String[] args )
   {
-    final List<Photo> photos = inputReader.readPhotos( "a_example.txt" );
+    solve( "a_example.txt", "a_result.txt" );
+    System.out.println( "Solved A" );
+    solve( "b_lovely_landscapes.txt", "b_result.txt" );
+    System.out.println( "Solved B" );
+    solve( "c_memorable_moments.txt", "c_result.txt" );
+    System.out.println( "Solved C" );
+    solve( "d_pet_pictures.txt", "d_result.txt" );
+    System.out.println( "Solved D" );
+    solve( "e_shiny_selfies.txt", "e_result.txt" );
+    System.out.println( "Solved E" );
+  }
+
+  public static void solve( String input, String output )
+  {
+    final List<Photo> photos = inputReader.readPhotos( input );
     final Slideshow slideshow = myGod.formSlideshow( photos );
-    outputWriter.writeResult( slideshow, "a_result.txt" );
+    outputWriter.writeResult( slideshow, output );
   }
 }

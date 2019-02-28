@@ -30,7 +30,7 @@ public class OutputWriterImpl implements OutputWriter
     try (PrintWriter writer = new PrintWriter( result ))
     {
       writer.println( slideshow.getSlides().size() ); // write number of slides
-      System.out.println( slideshow.getSlides().size() );
+//      System.out.println( slideshow.getSlides().size() );
       for( Slide slide : slideshow.getSlides() ) // write each slide
       {
         final String photoIds = slide.getPhotos().stream()
@@ -39,7 +39,7 @@ public class OutputWriterImpl implements OutputWriter
                 .collect( Collectors.joining( " " ) );
 
         writer.println( photoIds );
-        System.out.println( photoIds );
+//        System.out.println( photoIds );
       }
     }
     catch( FileNotFoundException e )
