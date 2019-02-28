@@ -1,8 +1,10 @@
 package rainbow.ponies;
 
 import rainbow.ponies.model.Photo;
+import rainbow.ponies.model.Slide;
 import rainbow.ponies.model.Slideshow;
 
+import java.util.Collection;
 import java.util.List;
 
 public class Main
@@ -10,6 +12,8 @@ public class Main
   private static final InputReader inputReader = new FileReader();
   private static final MyGod myGod = new IAmStupid();
   private static final OutputWriter outputWriter = new OutputWriterImpl();
+  private static final SlidesBuilder slidesBuilder = new BasicSlidesBuilder();
+  private static final SlideShowBuilder slidesShowBuilder = new BasicSlideShowBuilder();
 
   public static void main( String[] args )
   {
@@ -28,7 +32,9 @@ public class Main
   public static void solve( String input, String output )
   {
     final List<Photo> photos = inputReader.readPhotos( input );
-    final Slideshow slideshow = myGod.formSlideshow( photos );
+
+    final Collection<Slide> slides = slidesBuilder.build(photos);
+    final Slideshow slideshow = slidesShowBuilder.build(slides);
     outputWriter.writeResult( slideshow, output );
   }
 }
