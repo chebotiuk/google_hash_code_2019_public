@@ -13,4 +13,8 @@ public class Slideshow {
     public List<Slide> getSlides() {
         return slides;
     }
+
+    public void add(Slide slide) {
+        slides.add(slide);
+    }
 }
