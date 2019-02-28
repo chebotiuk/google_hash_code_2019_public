@@ -8,7 +8,7 @@ import java.util.List;
 
 public class PointsCounter {
 
-    long countPoints (Slideshow slideshow) {// TODO test
+    long countPoints (Slideshow slideshow) {
         long points = 0;
         List<Slide> slides = slideshow.getSlides();
         for(int i = 0; i < slides.size()-1; i++) {
@@ -18,7 +18,7 @@ public class PointsCounter {
         return points;
     }
 
-    long countPoints (Slide s1, Slide s2) {        // TODO test
+    long countPoints (Slide s1, Slide s2) {
 
         HashSet<String> left = new HashSet<>(s1.getTags());
         left.removeAll(s2.getTags());
