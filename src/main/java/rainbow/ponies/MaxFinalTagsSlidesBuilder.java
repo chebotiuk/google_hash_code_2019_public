@@ -3,7 +3,11 @@ package rainbow.ponies;
 import rainbow.ponies.model.Photo;
 import rainbow.ponies.model.Slide;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class MaxFinalTagsSlidesBuilder implements SlidesBuilder {
@@ -15,13 +19,13 @@ public class MaxFinalTagsSlidesBuilder implements SlidesBuilder {
     }
 
     @Override
-    public Collection<Slide> build(Collection<Photo> photos) {
+    public List<Slide> build(List<Photo> photos) {
         Map<Boolean, List<Photo>> isVertical = photos.stream().collect(Collectors.groupingBy(Photo::isVertical));
 
         List<Photo> verticalPhotos = isVertical.get(true) == null ? new ArrayList<>() : isVertical.get(true);
         List<Photo> horizontalPhotos = isVertical.get(false) == null ? new ArrayList<>() : isVertical.get(false);
 
-        Collection<Slide> slides = new ArrayList<>();
+        List<Slide> slides = new ArrayList<>();
         horizontalPhotos.forEach(p -> slides.add(new Slide(p)));
 
         verticalPhotos = new ArrayList<>(verticalPhotos);

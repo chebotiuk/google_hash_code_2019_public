@@ -29,6 +29,7 @@ public class FileReader implements InputReader {
                     .skip(2)
                     .collect(Collectors.toSet());
                 photos.add(new Photo(i, isVertical, tags));
+                if( i%1000 == 0 ) System.out.println(i);
             }
             return photos;
         } catch (IOException e) {

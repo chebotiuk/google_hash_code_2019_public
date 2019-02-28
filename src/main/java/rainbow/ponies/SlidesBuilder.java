@@ -1,12 +1,11 @@
 package rainbow.ponies;
 
-
 import rainbow.ponies.model.Photo;
 import rainbow.ponies.model.Slide;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface SlidesBuilder {
 
-    Collection<Slide> build(Collection<Photo> photos);
+    List<Slide> build( List<Photo> photos);
 }
