@@ -15,7 +15,7 @@ public class PointsCounter {
             points += countPoints(slides.get(i), slides.get(i+1));
         }
 
-        return 1l;
+        return points;
     }
 
     long countPoints (Slide s1, Slide s2) {        // TODO test
