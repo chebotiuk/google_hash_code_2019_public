@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Collectors;
+import rainbow.ponies.model.Photo;
 
 public class FileReader implements InputReader {
 

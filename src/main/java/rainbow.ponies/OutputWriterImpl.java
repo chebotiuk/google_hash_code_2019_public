@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UncheckedIOException;
 import java.util.stream.Collectors;
+import rainbow.ponies.model.Photo;
+import rainbow.ponies.model.Slide;
+import rainbow.ponies.model.Slideshow;
 
 public class OutputWriterImpl implements OutputWriter
 {
