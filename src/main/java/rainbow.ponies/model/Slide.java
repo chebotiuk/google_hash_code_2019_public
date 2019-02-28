@@ -1,4 +1,4 @@
-package rainbow.ponies;
+package rainbow.ponies.model;
 
 import java.util.HashSet;
 import java.util.List;

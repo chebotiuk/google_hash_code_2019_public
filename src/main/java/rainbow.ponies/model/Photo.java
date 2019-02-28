@@ -1,6 +1,5 @@
-package rainbow.ponies;
+package rainbow.ponies.model;
 
-import java.util.List;
 import java.util.Set;
 
 public class Photo
