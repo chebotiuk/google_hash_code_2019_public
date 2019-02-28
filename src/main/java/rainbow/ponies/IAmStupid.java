@@ -14,10 +14,28 @@ public class IAmStupid implements MyGod
   public Slideshow formSlideshow( List<Photo> photos )
   {
     List<Slide> slides = new ArrayList<>();
+    Slide verticalSlide = null;
     for( Photo photo : photos )
     {
-      final Slide slide = new Slide( Collections.singletonList( photo ) );
-      slides.add( slide );
+      if( photo.isVertical() )
+      {
+        if( verticalSlide == null )
+        {
+          verticalSlide = new Slide( new ArrayList<>() );
+          verticalSlide.getPhotos().add( photo );
+        }
+        else
+        {
+          verticalSlide.getPhotos().add( photo );
+          slides.add( verticalSlide );
+          verticalSlide = null;
+        }
+      }
+      else
+      {
+        final Slide slide = new Slide( Collections.singletonList( photo ) );
+        slides.add( slide );
+      }
     }
 
     return new Slideshow( slides );
