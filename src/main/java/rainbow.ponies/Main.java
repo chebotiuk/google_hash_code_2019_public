@@ -1,14 +1,15 @@
 package rainbow.ponies;
 
-import java.util.List;
 import rainbow.ponies.model.Photo;
 import rainbow.ponies.model.Slideshow;
+
+import java.util.List;
 
 public class Main
 {
   private static final InputReader inputReader = new FileReader();
-  private static final MyGod myGod = null;
-  private static final OutputWriter outputWriter = null;
+  private static final MyGod myGod = new IAmStupid();
+  private static final OutputWriter outputWriter = new OutputWriterImpl();
 
   public static void main( String[] args )
   {
