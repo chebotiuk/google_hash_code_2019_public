@@ -7,6 +7,13 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class MaxFinalTagsSlidesBuilder implements SlidesBuilder {
+
+    private final int maxAttempts;
+
+    public MaxFinalTagsSlidesBuilder(int maxAttempts) {
+        this.maxAttempts = maxAttempts;
+    }
+
     @Override
     public Collection<Slide> build(Collection<Photo> photos) {
         Map<Boolean, List<Photo>> isVertical = photos.stream().collect(Collectors.groupingBy(Photo::isVertical));
@@ -24,7 +31,7 @@ public class MaxFinalTagsSlidesBuilder implements SlidesBuilder {
 
             Photo best = null;
             long maxTags = -1;
-            for(int i = 0; i < 10 && i < verticalPhotos.size(); i++){
+            for(int i = 0; i < maxAttempts && i < verticalPhotos.size(); i++){
                 Photo candidate = verticalPhotos.get(i);
                 Set<String> tags = new HashSet<>(first.getTags());
                 tags.addAll(candidate.getTags());
