@@ -1,14 +1,15 @@
 package rainbow.ponies;
 
 import java.util.List;
+import java.util.Set;
 
 public class Photo
 {
   private final int id;
   private final boolean isVertical;
-  private final List<String> tags;
+  private final Set<String> tags;
 
-  public Photo( int id, boolean isVertical, List<String> tags )
+  public Photo( int id, boolean isVertical, Set<String> tags )
   {
     this.id = id;
     this.isVertical = isVertical;
@@ -25,7 +26,7 @@ public class Photo
     return isVertical;
   }
 
-  public List<String> getTags()
+  public Set<String> getTags()
   {
     return tags;
   }
