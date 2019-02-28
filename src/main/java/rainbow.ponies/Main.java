@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Main
 {
-  private static final InputReader inputReader = null;
+  private static final InputReader inputReader = new FileReader();
   private static final MyGod myGod = null;
   private static final OutputWriter outputWriter = null;
 
