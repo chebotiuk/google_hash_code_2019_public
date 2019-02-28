@@ -14,6 +14,7 @@ public class Main
   private static final OutputWriter outputWriter = new OutputWriterImpl();
   private static final SlidesBuilder slidesBuilder = new BasicSlidesBuilder();
   private static final SlideShowBuilder slidesShowBuilder = new BasicSlideShowBuilder();
+  private static final PointsCounter pointsCounter = new PointsCounter();
 
   public static void main( String[] args )
   {
@@ -35,6 +36,8 @@ public class Main
 
     final Collection<Slide> slides = slidesBuilder.build(photos);
     final Slideshow slideshow = slidesShowBuilder.build(slides);
+    long points = pointsCounter.countPoints(slideshow);
+    System.out.println("Received - " + points + " points");
     outputWriter.writeResult( slideshow, output );
   }
 }
