@@ -1,9 +1,6 @@
 package rainbow.ponies.model;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Slide
 {
@@ -33,5 +30,18 @@ public class Slide
       tags.addAll(photo.getTags());
     }
     return tags;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Slide slide = (Slide) o;
+    return Objects.equals(photos, slide.photos);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(photos);
   }
 }
