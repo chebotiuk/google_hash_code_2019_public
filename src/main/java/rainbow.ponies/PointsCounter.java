@@ -1,5 +1,6 @@
 package rainbow.ponies;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class PointsCounter {
@@ -14,8 +15,23 @@ public class PointsCounter {
         return 1l;
     }
 
-    long countPoints (Slide s1, Slide s2) {
-        return 1;
-        // TODO test
+    long countPoints (Slide s1, Slide s2) {        // TODO test
+
+        HashSet<String> left = new HashSet<>(s1.getTags());
+        left.removeAll(s2.getTags());
+
+
+        HashSet<String> right = new HashSet<>(s2.getTags());
+        right.removeAll(s1.getTags());
+
+        HashSet<String> middle = new HashSet<>(s1.getTags());
+        middle.retainAll(s2.getTags());
+
+
+        return min(left.size(), middle.size(), right.size());
+    }
+
+    long min(long l1, long l2, long l3) {
+        return 1l; // TODO test
     }
 }
