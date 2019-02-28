@@ -29,4 +29,33 @@ public class Photo
   {
     return tags;
   }
+
+  @Override
+  public String toString() {
+    return "Photo{" +
+            "id=" + id +
+            ", isVertical=" + isVertical +
+            ", tags=" + tags +
+            '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Photo photo = (Photo) o;
+
+    if (id != photo.id) return false;
+    if (isVertical != photo.isVertical) return false;
+    return tags != null ? tags.equals(photo.tags) : photo.tags == null;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = id;
+    result = 31 * result + (isVertical ? 1 : 0);
+    result = 31 * result + (tags != null ? tags.hashCode() : 0);
+    return result;
+  }
 }
