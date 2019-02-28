@@ -1,5 +1,7 @@
 package rainbow.ponies;
 
+import rainbow.ponies.model.Photo;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,7 +10,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Collectors;
-import rainbow.ponies.model.Photo;
 
 public class FileReader implements InputReader {
 

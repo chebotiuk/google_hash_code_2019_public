@@ -1,7 +1,8 @@
 package rainbow.ponies;
 
-import java.util.List;
 import rainbow.ponies.model.Photo;
+
+import java.util.List;
 
 public interface InputReader
 {

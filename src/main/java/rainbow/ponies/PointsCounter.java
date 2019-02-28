@@ -1,9 +1,10 @@
 package rainbow.ponies;
 
-import java.util.HashSet;
-import java.util.List;
 import rainbow.ponies.model.Slide;
 import rainbow.ponies.model.Slideshow;
+
+import java.util.HashSet;
+import java.util.List;
 
 public class PointsCounter {
 
