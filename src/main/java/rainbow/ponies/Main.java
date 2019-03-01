@@ -16,16 +16,16 @@ public class Main
 
   public static void main( String[] args )
   {
-//    solve( "a_example.txt", "a_result.txt" );
-//    System.out.println( "Solved A" );
+    solve( "a_example.txt", "a_result.txt" );
+    System.out.println( "Solved A" );
     solve( "b_lovely_landscapes.txt", "b_result.txt" );
     System.out.println( "Solved B" );
-//    solve( "c_memorable_moments.txt", "c_result.txt" );
-//    System.out.println( "Solved C" );
-//    solve( "d_pet_pictures.txt", "d_result.txt" );
-//    System.out.println( "Solved D" );
-//    solve( "e_shiny_selfies.txt", "e_result.txt" );
-//    System.out.println( "Solved E" );
+    solve( "c_memorable_moments.txt", "c_result.txt" );
+    System.out.println( "Solved C" );
+    solve( "d_pet_pictures.txt", "d_result.txt" );
+    System.out.println( "Solved D" );
+    solve( "e_shiny_selfies.txt", "e_result.txt" );
+    System.out.println( "Solved E" );
   }
 
   public static void solve( String input, String output )

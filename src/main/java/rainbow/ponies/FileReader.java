@@ -24,12 +24,10 @@ public class FileReader implements InputReader {
                 String row = scanner.nextLine();
                 String[] parts = row.split(" ");
                 boolean isVertical = "V".equals(parts[0]);
-                int id = Integer.parseInt(parts[1]);
                 Set<String> tags = Arrays.stream(parts)
                     .skip(2)
                     .collect(Collectors.toSet());
                 photos.add(new Photo(i, isVertical, tags));
-                if( i%1000 == 0 ) System.out.println(i);
             }
             return photos;
         } catch (IOException e) {

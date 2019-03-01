@@ -4,47 +4,47 @@ import rainbow.ponies.model.Slide;
 import rainbow.ponies.model.Slideshow;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.Random;
+import java.util.stream.IntStream;
 
 public class GreedySlideShowBuilder implements SlideShowBuilder
 {
   @Override
   public Slideshow build( List<Slide> slides )
   {
-    final Random random = new Random();
+    System.out.println( new Date() + ": Left: " + slides.size() );
+
     final Slideshow slideshow = new Slideshow( new ArrayList<>() );
     slideshow.getSlides().add( slides.remove( 0 ) );
 
-    here:
     while( !slides.isEmpty() )
     {
-      long bestResult = -Integer.MAX_VALUE;
-      Slide bestNextMatch = null;
-      for( int i = 0; i < slides.size(); i+=100 )
+      final long[] bestResult = { -Integer.MAX_VALUE };
+      final Slide[] bestNextMatch = { null };
+
+      IntStream.range( 0, slides.size() )
+              .parallel()
+              .forEach( i -> {
+                final List<Slide> existingSlides = new ArrayList<>();
+                existingSlides.add( slideshow.getSlides().get( slideshow.getSlides().size() - 1 ) );
+                final Slide nextSlide = slides.get( i );
+                existingSlides.add( nextSlide );
+                final long result = new PointsCounter().countPoints( new Slideshow( existingSlides ) );
+                if( result > bestResult[ 0 ] )
+                {
+                  bestNextMatch[ 0 ] = nextSlide;
+                  bestResult[ 0 ] = result;
+                }
+              } );
+
+      slideshow.getSlides().add( bestNextMatch[ 0 ] );
+      slides.remove( bestNextMatch[ 0 ] );
+
+      if( slides.size() % 100 == 0 )
       {
-        final List<Slide> existingSlides = new ArrayList<>();
-        existingSlides.add( slideshow.getSlides().get( slideshow.getSlides().size() - 1 ) );
-        final Slide nextSlide = slides.get( i );
-        existingSlides.add( nextSlide );
-        final long result = new PointsCounter().countPoints( new Slideshow( existingSlides ) );
-        if( result > bestResult )
-        {
-          bestNextMatch = nextSlide;
-          bestResult = result;
-          if( result >= 3 )
-            break;
-        }
+        System.out.println( new Date() + ": Left: " + slides.size() );
       }
-
-      slideshow.getSlides().add( bestNextMatch );
-      slides.remove( bestNextMatch );
-
-//      if( slides.size() % 1000 == 0 )
-//      {
-        System.out.println( "Left: " + slides.size() );
-        System.out.println( "Best result so far: " + bestResult );
-//      }
     }
 
     return slideshow;
